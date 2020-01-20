@@ -118,7 +118,7 @@ def rec():
 		newsClassifications = getNewsClassification(news)
 		return render_template('classifynews.html', news=news, newsClassifications=newsClassifications)
 	else:
-		return render_template('classifynews.html', news="" ,newsClassifications="<<unknown>>")
+		return render_template('classifynews.html', news="" ,newsClassifications=None)
 	
 
 if __name__ == "__main__":

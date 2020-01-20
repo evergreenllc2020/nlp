@@ -72,13 +72,18 @@
                       <td>News Category </td>
                        <td>News </td>
                   </tr>
-                  {% for k,v in newsClassifications.items() %}
-                  <tr>
-                     <td>{{ k  }}</td>
-                    <td>{{ v }}</td>
+                  {% print("newsClassification is ") %}
+                  
+                  {% print(newsClassification) %}
+                  {% if (news != ""):  %}
+                    {% for k,v in newsClassifications.items() %}
+                    <tr>
+                       <td>{{ k  }}</td>
+                      <td>{{ v }}</td>
 
-                   </tr>
-                  {% endfor %}
+                     </tr>
+                    {% endfor %}
+                  {% endif %}
                  
                 </table>
 
