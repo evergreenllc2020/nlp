@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script defer src="../templates/js/lib/fontawesome-all.min.js"></script>
+  <link rel="stylesheet" href="../templates/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../templates/css/animate.css">
+  <link rel="stylesheet" href="../templates/css/style.css">
+  <link rel="stylesheet" type="text/css" media="print" href="print.css">
+  <title>Semantic Search Engine</title>
+</head>
+
+<body data-spy="scroll" data-target=".site-nav" data-offset="55">
+
+  <header id="page-hero" class="site-header">
+    <nav  class="site-nav family-sans navbar text-uppercase navbar-expand-md  navbar-dark fixed-top ">
+
+    <div class="container-fluid">   
+        <a class="navbar-brand" href="#page-hero"><i class="fas fa-cube"></i>&nbsp;Semantic Search Engine</a>
+        
+        <button type="button" class="navbar-toggler"  data-toggle="collapse" data-target="#myTogglerNav"
+        aria-controls="#myTogglerNav" aria-label="Toggle Navigation"        
+        ><span class="navbar-toggler-icon"></span></button>
+        
+        
+        <section class="collapse navbar-collapse" id="myTogglerNav">
+        
+                <div class="navbar-nav ml-auto">
+
+                    <a class="nav-item nav-link" href="#page-hero">Books</a>
+                    <a class="nav-item nav-link"  href="#page-multicolumn">Songs</a>
+                    <a class="nav-item nav-link"  href="#page-media">Products</a>
+                    <!--
+                    <a class="nav-item nav-link"  href="#page-carousel">carousel</a>
+                    <a class="nav-item nav-link"  href="#page-nested">nested</a>
+                    <a class="nav-item nav-link"  href="#page-iconcolumns">icons</a>
+                    <a class="nav-item nav-link"  href="#page-floater">floater</a>
+                    <a class="nav-item nav-link"  href="#page-cards">cards</a>
+                    -->
+
+                </div>  <!-- navbar-nav -->
+
+      </section>
+    </div>  <!-- container -->
+    </nav>
+
+    <section class="layout-hero text-light text-center d-flex align-items-center ">
+      <div class="container">
+        <div class="row justify-content-center">
+        <div class="column justify-content-left">
+          <form method="POST"> 
+            <div class="form-group">
+                  <label><h2>Semantic Search Ver 1.0</h2></label>
+            </div>
+            <div class="form-group">
+               <label><p>Type query in text box and hit submit button to display to get search results</p></label>
+               
+              </div>
+            <div class="form-group text-left">
+              <label for="query" >Review:</label>
+              <textarea id="query" name="query" rows = "1" cols = "1" value="{{query}}" class="form-control"> </textarea>
+            </div>
+            <div class="form-group text-left">
+              <input type="submit" class="btn btn-info" value="Search">
+            </div>
+            <div class="form-group text-left">
+                <label class="bgc"><p>Semantic Search Results</p></label>
+                <table class="table table-bordered"> 
+                  <tr>
+                      <td>Search Results </td>
+                       <td>Cosine similarity score </td>
+                  </tr>
+                 
+                  
+                  {% if (query != "") and  (results != None) :  %}
+                    {% for idx, distance in results[0:4]: %}
+                    <tr>
+                       <td>{{ sentences[idx].strip()  }}</td>
+                      <td>{{ (1-distance) }}</td>
+
+                     </tr>
+                    {% endfor %}
+                  {% endif %}
+                 
+                </table>
+
+
+
+            </div>
+           
+           <div class="form-group text-left">
+              <label class="style bgcolor:red"><p>&nbsp; </p></label>
+         </div>
+         <div class="form-group text-left">
+            <label class="style bgcolor:red"><p>&nbsp;</p></label>
+       </div>
+       <div class="form-group text-left">
+          <label class="style bgcolor:red"><p>&nbsp;</p></label>
+     </div>
+              
+          </div>
+          </form>
+        </div>
+      </div>
+      
+      
+      
+      <!--
+      <div class="container">
+             <div class="row justify-content-center">
+               <div class="col-11 col-sm-10 col-md-8 animated fadeInUp">
+                <h3 class="page-section-title">Bootstrap 4 Layouts</h3>
+                <p class="page-section-text">This Layout uses multiple column rules so that how many columns each group depends on the width of browser</p>
+                </div>  
+            </div>          
+
+
+
+    </div>  <!-- container -->
+    </section>
+
+
+
+
+  </header>
+
+
+  <!--
+  <article id="page-multicolumn" class="page-section text-center py-5">
+   
+   
+    <header class="page-section-header container">
+      <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-8">
+          <h2 class="page-section-title" >Funny Monsters</h2>
+          <p class="page-section-text"></p>
+        </div>
+      </div>  
+    </header>
+   
+   
+   <section class="layout-multicolumn container family-sans text-uppercase">
+     <div class="row justify-content-center">
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster01.svg" ><img class="layout-image" src="../templates/images/monster01_tn.svg" alt="Monster Image 01"></a>
+        <h5 class="layout-title pt-2">Mingle</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster02.svg" ><img class="layout-image" src="../templates/images/monster02_tn.svg" alt="Monster Image 02"></a>
+        <h5 class="layout-title pt-2">Yodel</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster03.svg" ><img class="layout-image" src="../templates/images/monster03_tn.svg" alt="Monster Image 03"></a>
+        <h5 class="layout-title pt-2">Squido</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster04.svg" ><img class="layout-image" src="../templates/images/monster04_tn.svg" alt="Monster Image 04"></a>
+        <h5 class="layout-title pt-2">Spook</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster05.svg" ><img class="layout-image" src="../templates/images/monster05_tn.svg" alt="Monster Image 05"></a>
+        <h5 class="layout-title pt-2">Melville</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster06.svg" ><img class="layout-image" src="../templates/images/monster06_tn.svg" alt="Monster Image 06"></a>
+        <h5 class="layout-title pt-2">Filo</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster07.svg" ><img class="layout-image" src="../templates/images/monster07_tn.svg" alt="Monster Image 07"></a>
+        <h5 class="layout-title pt-2">Blade</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster08.svg" ><img class="layout-image" src="../templates/images/monster08_tn.svg" alt="Monster Image 08"></a>
+        <h5 class="layout-title pt-2">Timber</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster09.svg" ><img class="layout-image" src="../templates/images/monster09_tn.svg" alt="Monster Image 09"></a>
+        <h5 class="layout-title pt-2">Skedaddle</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster10.svg" ><img class="layout-image" src="../templates/images/monster10_tn.svg" alt="Monster Image 10"></a>
+        <h5 class="layout-title pt-2">Smiley</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster11.svg" ><img class="layout-image" src="../templates/images/monster11_tn.svg" alt="Monster Image 11"></a>
+        <h5 class="layout-title pt-2">Frex</h5>
+      </section>
+
+      <section class="mb-5 col-10 col-md-6 col-lg-4 col-xl-3">
+        <a href="#" data-toggle="modal" data-target="#site-modal" data-highres="../templates/images/monster12.svg" ><img class="layout-image" src="../templates/images/monster12_tn.svg" alt="Monster Image 12"></a>
+        <h5 class="layout-title pt-2">Drift</h5>
+      </section>
+    </div>
+   </section>
+  </article>
+-->
+
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
